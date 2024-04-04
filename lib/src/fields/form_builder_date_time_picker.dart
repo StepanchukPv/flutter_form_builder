@@ -260,6 +260,15 @@ class _FormBuilderDateTimePickerState extends FormBuilderFieldDecorationState<
   }
 
   @override
+  void didUpdateWidget(covariant FormBuilderField<DateTime> oldWidget) {
+    if (value != widget.currentDate) {
+      didChange(widget.currentDate);
+    }
+
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   void dispose() {
     effectiveFocusNode.removeListener(_handleFocus);
     // Dispose the _textFieldController when initState created it
